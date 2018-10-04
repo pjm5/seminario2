@@ -40,6 +40,7 @@ export default {
   },
   getById (item, id) {
     return http.get(path + '/' + id + '?access_token=' + item).then((response) => {
+      console.log("test");
       return response.data
     })
   }
