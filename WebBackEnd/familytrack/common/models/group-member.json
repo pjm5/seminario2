@@ -1,0 +1,47 @@
+{
+  "name": "Group_member",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "default": "luciano"
+    },
+    "LastName": {
+      "type": "string",
+      "required": true,
+      "default": "verri"
+    },
+    "BirdDay": {
+      "type": "date",
+      "required": true,
+      "default": "10/10/2001"
+    },
+    "GroupId": {
+      "type": "number",
+      "required": true,
+      "default": 1
+    }
+  },
+  "validations": [],
+  "relations": {
+    "position_members": {
+      "type": "hasMany",
+      "model": "position_member",
+      "foreignKey": "GroupMemberId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

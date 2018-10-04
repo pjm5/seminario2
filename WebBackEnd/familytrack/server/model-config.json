@@ -1,0 +1,53 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "herokudb"
+  },
+  "AccessToken": {
+    "dataSource": "herokudb",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "herokudb",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "herokudb",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "herokudb",
+    "public": false
+  },
+  "Message": {
+    "dataSource": null
+  },
+  "Group": {
+    "dataSource": "herokudb",
+    "public": true
+  },
+  "Group_member": {
+    "dataSource": "herokudb",
+    "public": true
+  },
+  "Position_member": {
+    "dataSource": "herokudb",
+    "public": true
+  }
+}

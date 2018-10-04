@@ -1,0 +1,26 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mysqlds": {
+    "host": "localhost",
+    "port": 3306,
+    "url": "",
+    "database": "familydb",
+    "password": "",
+    "name": "mysqlds",
+    "user": "root",
+    "connector": "mysql"
+  },
+  "herokudb": {
+    "host": "l3855uft9zao23e2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "port": 3306,
+    "url": "",
+    "database": "fcv3c152e7t89uct",
+    "name": "herokudb",
+    "user": "u7bzmbqapntpkl1r",
+    "password": "uw9rgt5einowlxbm",
+    "connector": "mysql"
+  }
+}

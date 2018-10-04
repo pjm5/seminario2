@@ -1,0 +1,7 @@
+open api: querys formato sobre loopback
+
+correr el backend:
+#node .
+Actualizar la base:
+#cd server
+#node 'nombrearchivo jason automigrate'

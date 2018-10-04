@@ -1,0 +1,19 @@
+{
+  "name": "seminarioapps",
+  "version": "1.0.0",
+  "description": "proyecto seminario",
+  "main": "index.js",
+  "scripts": {
+    "init:web": "cd WebFrontEnd/familytrack && npm install",
+    "init:rest": "cd WebBackEnd/familytrack && npm install",
+    "init": "npm run init:web && npm run init:rest",
+    "postinstall": "npm run init",
+    "test:web": "cd WebFrontEnd/familytrack && npm run lint",
+    "test:rest": "cd WebBackEnd/familytrack && npm run test",
+    "test": "npm run init&& npm run test:web && npm run test:rest",
+    "build:web": "cd WebFrontEnd/familytrack && npm run build",
+    "build:rest": "cd WebFrontEnd/familytrack/dist && rm -fr ../../../WebBackEnd/familytrack/client/* && cp -a * ../../../WebBackEnd/familytrack/client",
+    "build": "npm run build:web && npm run build:rest",
+    "heroku": "cd WebBackEnd/familytrack && node ."
+  }
+}

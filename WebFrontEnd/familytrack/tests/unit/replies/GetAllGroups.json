@@ -1,0 +1,27 @@
+[
+    {
+      "Name": "family one",
+      "Description": "adssas",
+      "id": 1
+    },
+    {
+      "Name": "famili 2",
+      "Description": "sadasdad",
+      "id": 2
+    },
+    {
+      "Name": "familia 3",
+      "Description": "test 3",
+      "id": 3
+    },
+    {
+      "Name": "famili 4",
+      "Description": "sadsadasd",
+      "id": 4
+    },
+    {
+      "Name": "grupo seminario",
+      "Description": "seminario",
+      "id": 5
+    }
+  ]
