@@ -15,14 +15,15 @@ describe('Testing recurses', () => {
     let response = await groupsResorces.getAll()
     console.log(response)
     expect(response).toBeDefined()
-    expect(response[0].Name).toEqual('family one')
+    expect(response[0].Name).toEqual('family 1')
   })
-
+  /*
   it('get one group', async () => {
     let response = await groupsResorces.getOneById(1)
     console.log(response)
     expect(response).toBeDefined()
-    expect(response.Name).toEqual('family one')
+    expect(response.Name).toEqual('family 1')
   })
+  */
 })
 // logica de test
