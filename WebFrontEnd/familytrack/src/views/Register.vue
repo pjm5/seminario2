@@ -41,7 +41,7 @@ export default {
   methods: {
     register: function (event) {
       console.log('registrar-> ' + this.selectItem.password)
-      user.created(this.selectItem).then(() => {
+      user.create(this.selectItem).then(() => {
         console.log('usuario registrado')
 
         this.$router.push({
