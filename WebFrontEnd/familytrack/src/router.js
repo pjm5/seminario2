@@ -43,19 +43,15 @@ const router = new Router({
     }
 
   ]
-});
+})
 
 router.beforeEach((to, from, next) => {
-  
-  /* 
+  /*
   if ($localStorage.get('IsAuthenticated') === "false"){
     return next('/login');
   }
   */
-  next();
-
+  next()
 })
 
-
-export default router;
-
+export default router

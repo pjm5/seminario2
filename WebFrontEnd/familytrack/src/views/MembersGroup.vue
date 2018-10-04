@@ -81,138 +81,127 @@
 </template>
 
 <script>
-import http from "axios";
-import group_member from "@/resources/group_member.js";
-import group from "@/resources/group.js";
-import user from "@/resources/user.js";
+import groupMember from '@/resources/group_member.js'
+import group from '@/resources/group.js'
 
 export default {
-    data: () => ({
-        date: null,
-        menu: false,
-        modal: false,
-        menu2: false,
-        dialog: false,
-        selectItem: {},
-        headers: [{
-                text: "Name",
-                value: "name"
-            },
-            {
-                text: "Last Name",
-                value: "lastName"
-            },
-            {
-                text: "BirdDay",
-                value: "birdDay"
-            },
-            {
-                text: "GroupId",
-                value: "groupId"
-            },
-            {
-                text: "Email",
-                value: "email"
-            }
-        ],
-        membersGroup: [],
-        groups: [],
-        editedIndex: -1
-    }),
-    computed: {
-        formTitle() {
-            return this.editedIndex === -1 ? "New Member" : "Edit Member";
-        }
+  data: () => ({
+    date: null,
+    menu: false,
+    modal: false,
+    menu2: false,
+    dialog: false,
+    selectItem: {},
+    headers: [{
+      text: 'Name',
+      value: 'name'
     },
-    watch: {
-        dialog(val) {
-            val || this.close();
-        }
+    {
+      text: 'Last Name',
+      value: 'lastName'
     },
-    created() {
-        this.initialize();
-        if(!this.$store.state.IsAuthenticated){
-           console.log("group-welcome- before")
-            this.$router.push({
-                path: 'welcome'
-            });
-        }
+    {
+      text: 'BirdDay',
+      value: 'birdDay'
     },
-    methods: {
-        initialize() {
-
-            group_member.getAll().then(response => {
-                this.membersGroup = response;
-            }).catch((error) => {
-
-                console.log("es un error")
-                console.log(error)
-            });
-
-            group.getAll().then(response => {
-                this.groups = response;
-            }).catch((error) => {
-
-                console.log("es un error")
-                console.log(error)
-            });
-        },
-        editItem(item) {
-            this.editedIndex = this.membersGroup.indexOf(item);
-            this.selectItem = Object.assign({}, item);
-            this.dialog = true;
-        },
-        deleteItem(item) {
-            const index = this.membersGroup.indexOf(item);
-
-            this.membersGroup.splice(index, 1);
-
-            group_member.delete(item.id).then(() => {
-                console.log("elemento borrado");
-                this.membersGroup.splice(index, 1);
-            }).catch((error) => {
-
-                console.log("es un error")
-                console.log(error)
-            });
-        },
-        close() {
-            this.dialog = false;
-            setTimeout(() => {
-                this.selectItem = Object.assign({}, this.selectItem);
-                this.editedIndex = -1;
-            }, 300);
-        },
-        save() {
-            if (this.editedIndex > -1) {
-                Object.assign(this.membersGroup[this.editedIndex], this.selectItem);
-            } else {
-
-                this.$Progress.start()
-                this.membersGroup.push(this.selectItem);
-
-                group_member.created(this.selectItem).then(() => {
-
-                    var user = {};
-                    user.email = this.selectItem.Email;
-                    user.password = "1234";
-
-                    user.created(user).then(() => {
-                        this.$Progress.finish()
-                    }).catch((error) => {
-
-                        console.log("es un error")
-                        console.log(error)
-                    });
-
-                }).catch((error) => {
-
-                    console.log("es un error")
-                    console.log(error)
-                });
-            }
-            this.close();
-        }
+    {
+      text: 'GroupId',
+      value: 'groupId'
+    },
+    {
+      text: 'Email',
+      value: 'email'
     }
-};
+    ],
+    membersGroup: [],
+    groups: [],
+    editedIndex: -1
+  }),
+  computed: {
+    formTitle () {
+      return this.editedIndex === -1 ? 'New Member' : 'Edit Member'
+    }
+  },
+  watch: {
+    dialog (val) {
+      val || this.close()
+    }
+  },
+  created () {
+    this.initialize()
+    if (!this.$store.state.IsAuthenticated) {
+      console.log('group-welcome- before')
+      this.$router.push({
+        path: 'welcome'
+      })
+    }
+  },
+  methods: {
+    initialize () {
+      groupMember.getAll().then(response => {
+        this.membersGroup = response
+      }).catch((error) => {
+        console.log('es un error')
+        console.log(error)
+      })
+
+      group.getAll().then(response => {
+        this.groups = response
+      }).catch((error) => {
+        console.log('es un error')
+        console.log(error)
+      })
+    },
+    editItem (item) {
+      this.editedIndex = this.membersGroup.indexOf(item)
+      this.selectItem = Object.assign({}, item)
+      this.dialog = true
+    },
+    deleteItem (item) {
+      const index = this.membersGroup.indexOf(item)
+
+      this.membersGroup.splice(index, 1)
+
+      groupMember.delete(item.id).then(() => {
+        console.log('elemento borrado')
+        this.membersGroup.splice(index, 1)
+      }).catch((error) => {
+        console.log('es un error')
+        console.log(error)
+      })
+    },
+    close () {
+      this.dialog = false
+      setTimeout(() => {
+        this.selectItem = Object.assign({}, this.selectItem)
+        this.editedIndex = -1
+      }, 300)
+    },
+    save () {
+      if (this.editedIndex > -1) {
+        Object.assign(this.membersGroup[this.editedIndex], this.selectItem)
+      } else {
+        this.$Progress.start()
+        this.membersGroup.push(this.selectItem)
+
+        groupMember.created(this.selectItem).then(() => {
+          var user = {}
+          user.email = this.selectItem.Email
+          user.password = '1234'
+
+          user.created(user).then(() => {
+            this.$Progress.finish()
+          }).catch((error) => {
+            console.log('es un error')
+            console.log(error)
+          })
+        }).catch((error) => {
+          console.log('es un error')
+          console.log(error)
+        })
+      }
+      this.close()
+    }
+  }
+}
 </script>

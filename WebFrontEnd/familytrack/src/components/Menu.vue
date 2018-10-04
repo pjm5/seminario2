@@ -9,7 +9,7 @@
                             {{ item.heading }}
                         </v-subheader>
                     </v-flex>
-                    
+
                 </v-layout>
                 <v-divider v-else-if="item.divider" :key="i" dark class="my-3"></v-divider>
                 <v-list-tile v-else :key="i" v-bind:href="'#/' + (item.text == 'home' ? '': item.text)">
@@ -29,7 +29,7 @@
         <v-toolbar-side-icon v-if="loggedIn" @click.native="drawer = !drawer"></v-toolbar-side-icon>
         <span class="title ml-3 mr-5">Family Tracking</span>
         <v-spacer></v-spacer>
-        <div v-if="loggedIn">        
+        <div v-if="loggedIn">
             <span class="title ml-3 mr-5">Hola  {{user}}</span>
         </div>
         <v-btn v-if="loggedIn" icon large to="/welcome">
@@ -47,55 +47,55 @@
 </template>
 
 <script>
-import user from "@/resources/user.js";
+import user from '@/resources/user.js'
 
 export default {
-    name: "Menu",
-    data: () => ({
-        drawer: null,
-        user: "null",
-        items: [{
-                heading: 'MENU'
-            },
-            {
-                icon: 'group',
-                text: 'groups'
-            },
-            {
-                icon: 'supervised_user_circle',
-                text: 'membersGroup'
-            },
-            {
-                icon: 'map',
-                text: 'home'
-            }
-        ]
-    }),
-    computed:{
-        loggedIn() {
-            if(this.$store.state.IsAuthenticated){
-                user.getById(this.$store.state.token,this.$store.state.user.id).then( response => {
-                   console.log(response);
-                   this.user = response.username
-                });
-            }
-            return this.$store.state.IsAuthenticated;
-        }
+  name: 'Menu',
+  data: () => ({
+    drawer: null,
+    user: 'null',
+    items: [{
+      heading: 'MENU'
     },
-    methods: {
-        logout: function (event) {
-            user.logout(this.$store.state.token).then( response => {
-                console.log(response);                
-                this.$store.state.IsAuthenticated = false;
-                localStorage.removeItem("accToken");
-                this.$router.replace({
-                    name: 'welcome'
-                })
-            }).catch((error) => {
-                console.log("es un error")
-                console.log(error)
-            })
-        }
+    {
+      icon: 'group',
+      text: 'groups'
+    },
+    {
+      icon: 'supervised_user_circle',
+      text: 'membersGroup'
+    },
+    {
+      icon: 'map',
+      text: 'home'
+    }
+    ]
+  }),
+  computed: {
+    loggedIn () {
+      if (this.$store.state.IsAuthenticated) {
+        user.getById(this.$store.state.token, this.$store.state.user.id).then(response => {
+          console.log(response)
+          this.user = response.username
+        })
+      }
+      return this.$store.state.IsAuthenticated
+    }
+  },
+  methods: {
+    logout: function (event) {
+      user.logout(this.$store.state.token).then(response => {
+        console.log(response)
+        this.$store.state.IsAuthenticated = false
+        localStorage.removeItem('accToken')
+        this.$router.replace({
+          name: 'welcome'
+        })
+      }).catch((error) => {
+        console.log('es un error')
+        console.log(error)
+      })
+    }
   }
 }
 </script>

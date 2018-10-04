@@ -27,20 +27,6 @@ Vue.use(VueGoogleMaps, {
   }
 })
 
-var commonFunctions = {
-  methods: {
-    SetAutorized: function (value) {
-      this.$localStorage.set('IsAuthenticated', value)
-    },
-    GetAutorized: function () {
-      return this.$localStorage.get('accToken')
-    },
-    IsAutorized: function () {
-      return (this.$localStorage.get('IsAuthenticated') === 'true')
-    }
-  }
-}
-
 const vueApp = new Vue({
   store,
   router,

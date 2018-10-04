@@ -22,14 +22,14 @@
 
 <script>
 export default {
-    name: "Dialog",
-    data() {
-        return {
-            dialog: false
-        }
-    },
-    mounted() {
-        this.dialog = true
+  name: 'Dialog',
+  data () {
+    return {
+      dialog: false
     }
+  },
+  mounted () {
+    this.dialog = true
+  }
 }
 </script>

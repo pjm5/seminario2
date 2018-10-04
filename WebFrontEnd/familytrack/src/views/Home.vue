@@ -30,64 +30,59 @@
 </template>
 
 <script>
-import GoogleMap from "@/components/GoogleMap.vue";
-import http from "axios";
-import group_member from "@/resources/group_member.js";
-import group from "@/resources/group.js";
-import position_member from "@/resources/position_member.js";
+import GoogleMap from '@/components/GoogleMap.vue'
 
 export default {
-    name: "home",
-    data() {
-        return {
-            groups: [],
-            date: null,
-            modal: null,
-            selectItem: {},
-            center: {
-                lat: 10.0,
-                lng: 10.0
-            },
-            markers: [{
-                position: {
-                    lat: 10.0,
-                    lng: 10.0
-                }
-            }, {
-                position: {
-                    lat: 11.0,
-                    lng: 11.0
-                }
-            }]
+  name: 'home',
+  data () {
+    return {
+      groups: [],
+      date: null,
+      modal: null,
+      selectItem: {},
+      center: {
+        lat: 10.0,
+        lng: 10.0
+      },
+      markers: [{
+        position: {
+          lat: 10.0,
+          lng: 10.0
         }
-    },
-    beforeCreate (){
-        if(!this.$store.state.IsAuthenticated){
-            console.log("entro");
-            this.$router.replace({
-            name: 'welcome'
-            })
+      }, {
+        position: {
+          lat: 11.0,
+          lng: 11.0
         }
-    },
-    computed: {
-        loggedIn() {
-            return this.$store.IsAuthenticated;
-        }
-    },
-    changeRoute: function (a) {
-        console.log(a);
-    },
-    created() {
-
-        group.getAll().then(response => {
-            this.groups = response;
-        }).catch((error) => {
-            console.log("es un error")
-            console.log(error)
-        })
-    },
-    components: {
-        GoogleMap
+      }]
     }
+  },
+  beforeCreate () {
+    if (!this.$store.state.IsAuthenticated) {
+      console.log('entro')
+      this.$router.replace({
+        name: 'welcome'
+      })
+    }
+  },
+  computed: {
+    loggedIn () {
+      return this.$store.IsAuthenticated
+    }
+  },
+  changeRoute: function (a) {
+    console.log(a)
+  },
+  created () {
+    // group.getAll().then(response => {
+    //   this.groups = response
+    // }).catch((error) => {
+    //   console.log('es un error')
+    //   console.log(error)
+    // })
+  },
+  components: {
+    GoogleMap
+  }
 }
 </script>

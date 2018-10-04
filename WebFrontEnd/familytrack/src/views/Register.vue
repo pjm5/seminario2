@@ -28,39 +28,35 @@
 </template>
 
 <script>
-import http from 'axios'
 import user from '@/resources/user.js'
 
 export default {
-    data: () => ({
-        selectItem: {}
-    }),
-    mounted() {
-       
-        //SetAutorized(false);
+  data: () => ({
+    selectItem: {}
+  }),
+  mounted () {
+
+    // SetAutorized(false);
+  },
+  methods: {
+    register: function (event) {
+      console.log('registrar-> ' + this.selectItem.password)
+      user.created(this.selectItem).then(() => {
+        console.log('usuario registrado')
+
+        this.$router.push({
+          path: 'login'
+        })
+      }).catch((error) => {
+        console.log('es un error')
+        console.log(error)
+      })
     },
-    methods: {
-        register: function (event) {
-            console.log("registrar-> "+ this.selectItem.password);
-            user.created(this.selectItem).then(() => {
-                console.log("usuario registrado");
-
-                this.$router.push({
-                    path: 'login'
-                })
-
-            }).catch((error) => {
-
-                console.log("es un error")
-                console.log(error)
-            })
-        },
-        cancel: function (event) {
-
-            this.$router.push({
-                path: 'welcome'
-            })
-        }
+    cancel: function (event) {
+      this.$router.push({
+        path: 'welcome'
+      })
     }
+  }
 }
 </script>

@@ -29,43 +29,40 @@
 </template>
 
 <script>
-import http from "axios";
-import user from "@/resources/user.js";
-import Dialog from "@/components/Dialog.vue";
+import user from '@/resources/user.js'
+import Dialog from '@/components/Dialog.vue'
 
 export default {
-    data: () => ({
-        selectItem: {},
-    }),
-    components: {
-        Dialog
+  data: () => ({
+    selectItem: {}
+  }),
+  components: {
+    Dialog
+  },
+  mounted () {
+    // vueApp.SetAutorized(false);
+  },
+  methods: {
+    login: function (event) {
+      user.login(this.selectItem).then(response => {
+        console.log(response)
+        localStorage.setItem('accToken', response.id)
+        this.$store.state.token = response.id
+        this.$store.state.IsAuthenticated = true
+        this.$store.state.user.id = response.userId
+        this.$router.push({
+          path: '/'
+        })
+      }).catch((error) => {
+        console.log('es un error')
+        console.log(error)
+      })
     },
-    mounted () {
-        //vueApp.SetAutorized(false);
-    },
-    methods: {
-        login: function (event) {
-
-            user.login(this.selectItem).then( response => {
-                console.log(response);                
-                localStorage.setItem("accToken",response.id);
-                this.$store.state.token = response.id;
-                this.$store.state.IsAuthenticated= true
-                this.$store.state.user.id = response.userId
-                this.$router.push({
-                    path: '/'
-                });
-            }).catch((error) => {
-                console.log("es un error")
-                console.log(error)
-            });
-        },
-        cancel: function (event) {
-
-            this.$router.push({
-                path: 'welcome'
-            })
-        }
+    cancel: function (event) {
+      this.$router.push({
+        path: 'welcome'
+      })
     }
+  }
 }
 </script>

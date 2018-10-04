@@ -25,9 +25,9 @@
 
 <script>
 export default {
-    data: () => ({}),
-    mounted () {
-        // SetAutorized(false);
-    }
+  data: () => ({}),
+  mounted () {
+    // SetAutorized(false);
+  }
 }
 </script>

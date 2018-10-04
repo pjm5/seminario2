@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     IsAuthenticated: localStorage.getItem('accToken') || false,
     token: null,
-    user : {
+    user: {
       userName: null,
       id: null
     }

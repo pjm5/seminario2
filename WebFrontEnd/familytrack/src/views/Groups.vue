@@ -58,105 +58,107 @@
 </template>
 
 <script>
-import http from "axios";
-import group from "@/resources/group.js";
+import group from '@/resources/group.js'
 
 export default {
-    data: () => ({
-        dialog: false,
-        selectItem: {
-            name: "",
-            description: ""
-        },
-        groups: [],
-        headers: [{
-                text: "Name",
-                value: "name"
-            },
-            {
-                text: "Description",
-                value: "description",
-                sortable: false
-            }
-        ],
-        editedIndex: -1
-
-    }),
-    computed: {
-        formTitle() {
-            return this.editedIndex === -1 ? "New Item" : "Edit Item";
-        }
+  data: () => ({
+    dialog: false,
+    selectItem: {
+      name: '',
+      description: ''
     },
-    watch: {
-        dialog(val) {
-            val || this.close();
-        }
+    groups: [],
+    headers: [
+      {
+        text: 'Name',
+        value: 'name'
+      },
+      {
+        text: 'Description',
+        value: 'description',
+        sortable: false
+      }
+    ],
+    editedIndex: -1
+  }),
+  computed: {
+    formTitle () {
+      return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+    }
+  },
+  watch: {
+    dialog (val) {
+      val || this.close()
+    }
+  },
+  created () {
+    this.initialize()
+    if (!this.$store.state.IsAuthenticated) {
+      console.log('group-welcome- before')
+      this.$router.push({
+        path: 'welcome'
+      })
+    }
+  },
+  methods: {
+    initialize () {
+      group
+        .getAll()
+        .then(response => {
+          this.groups = response
+        })
+        .catch(error => {
+          console.log('es un error')
+          console.log(error)
+        })
     },
-    created() {
-        this.initialize();
-        if(!this.$store.state.IsAuthenticated){
-           console.log("group-welcome- before")
-            this.$router.push({
-                path: 'welcome'
-            });
-        }
-    },
-    methods: {
-        initialize() {
-            group.getAll().then(response => {
+    editItem (item) {
+      this.editedIndex = this.groups.indexOf(item)
+      this.selectItem = Object.assign({}, item)
+      this.dialog = true
 
-                this.groups = response;
-            }).catch((error) => {
-                console.log("es un error")
-                console.log(error)
-            });
-        },
-        editItem(item) {
-
-            this.editedIndex = this.groups.indexOf(item);
-            this.selectItem = Object.assign({}, item);
-            this.dialog = true;
-
-            /*
+      /*
              * FALTACODIGO:
              */
-        },
-        deleteItem(item) {
+    },
+    deleteItem (item) {
+      const index = this.groups.indexOf(item)
 
-            const index = this.groups.indexOf(item);
+      group
+        .delete(item.id)
+        .then(() => {
+          console.log('elemento borrado')
+          this.groups.splice(index, 1)
+        })
+        .catch(error => {
+          console.log('es un error')
+          console.log(error)
+        })
+    },
+    close () {
+      this.dialog = false
+      setTimeout(() => {
+        this.selectItem = Object.assign({}, this.selectItem)
+        this.editedIndex = -1
+      }, 300)
+    },
+    save () {
+      if (this.editedIndex > -1) {
+        Object.assign(this.groups[this.editedIndex], this.selectItem)
+      } else {
+        group
+          .create(this.selectItem)
+          .then(() => {
+            this.groups.push(this.selectItem)
+          })
+          .catch(error => {
+            console.log('es un error')
+            console.log(error)
+          })
+      }
 
-            group.delete(item.id).then(() => {
-                console.log("elemento borrado");
-                this.groups.splice(index, 1);
-            }).catch((error) => {
-
-                console.log("es un error")
-                console.log(error)
-            });
-        },
-        close() {
-            this.dialog = false;
-            setTimeout(() => {
-                this.selectItem = Object.assign({}, this.selectItem);
-                this.editedIndex = -1;
-            }, 300);
-        },
-        save() {
-            if (this.editedIndex > -1) {
-                Object.assign(this.groups[this.editedIndex], this.selectItem);
-            } else {
-
-                group.create(this.selectItem).then(() => {
-                    this.groups.push(selectItem);
-                }).catch((error) => {
-
-                    console.log("es un error")
-                    console.log(error)
-                });
-            }
-
-            this.close();
-        }
+      this.close()
     }
-};
+  }
+}
 </script>
