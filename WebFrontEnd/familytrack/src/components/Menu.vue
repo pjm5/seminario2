@@ -71,12 +71,12 @@ export default {
     }
     ]
   }),
-  computed: {
+  mounted: {
      loggedIn () {
        if (this.$store.state.IsAuthenticated) {
         user.getById(this.$store.state.token, this.$store.state.user.id).then(response => {
           console.log(response)
-      this.user = response.username
+          this.user = response.username
         })
       }
       return this.$store.state.IsAuthenticated
