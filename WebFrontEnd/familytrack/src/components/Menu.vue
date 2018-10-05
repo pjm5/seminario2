@@ -83,6 +83,7 @@ export default {
           this.user = response.username
         })
        }
+       return this.$store.state.IsAuthenticated;
     }
   },
   methods: {
