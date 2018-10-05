@@ -184,12 +184,12 @@ export default {
         this.$Progress.start()
         this.membersGroup.push(this.selectItem)
 
-        groupMember.created(this.$store.state.token, this.selectItem).then(() => {
+        groupMember.create(this.$store.state.token, this.selectItem).then(() => {
           var user = {}
           user.email = this.selectItem.Email
           user.password = '1234'
 
-          user.created(this.$store.state.token, user).then(() => {
+          user.create(this.$store.state.token, user).then(() => {
             this.$Progress.finish()
           }).catch((error) => {
             console.log('es un error')
