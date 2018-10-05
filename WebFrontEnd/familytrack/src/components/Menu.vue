@@ -71,16 +71,16 @@ export default {
     }
     ]
   }),
-  Computed: {
-    loggedIn() {
+  computed: {
+    loggedIn () {
       console.log('leyendo local storage loggin')
       console.log(this.$store.state.IsAuthenticated)
       if (this.$store.state.IsAuthenticated) {
         console.log('entro a loggin')
-        user.getById(this.$store.state.token, this.$store.state.user.id).then(response => {
-          console.log(response)
-          this.user = response.username
-        })
+        //user.getById(this.$store.state.token, this.$store.state.user.id).then(response => {
+        //  console.log(response)
+        //  this.user = response.username
+        //})
       }
       return this.$store.state.IsAuthenticated
     }
