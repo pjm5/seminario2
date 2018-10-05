@@ -54,7 +54,6 @@ export default {
   data: () => ({
     drawer: null,
     user: 'null',
-    loggedIn: false,
     items: [{
       heading: 'MENU'
     },
@@ -73,7 +72,7 @@ export default {
     ]
   }),
   Computed: {
-    loggedIn: function () {
+    loggedIn() {
       console.log('leyendo local storage loggin')
       console.log(this.$store.state.IsAuthenticated)
       if (this.$store.state.IsAuthenticated) {
