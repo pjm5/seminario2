@@ -72,7 +72,7 @@ export default {
     }
     ]
   }),
-  computed: {
+  asyncComputed: {
      loggedIn: function () { 
          console.log("leyendo local storage loggin")
          console.log(this.$store.state.IsAuthenticated)
