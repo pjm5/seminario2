@@ -39,10 +39,12 @@ export default {
         const marker = {
           lat: -31.4,
           lng: -64.1833
-        }
+        };
+
         this.markers.push({
-          position: marker
-        })
+          position: [{lat:-31.45949097,lng:-64.1810500},{lat:-31.45989488,lng:-64.1810500}]
+        });
+
         this.places.push(this.currentPlace)
         this.center = marker
         this.currentPlace = null

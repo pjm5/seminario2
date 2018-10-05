@@ -147,7 +147,7 @@ export default {
         Object.assign(this.groups[this.editedIndex], this.selectItem)
       } else {
         group
-          .create(this.selectItem)
+          .create(this.$store.state.token, this.selectItem)
           .then(() => {
             this.groups.push(this.selectItem)
           })
