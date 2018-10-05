@@ -91,7 +91,7 @@ export default {
       val || this.close()
     }
   },
-  created () {
+  mounted () {
     this.initialize()
     if (!this.$store.state.IsAuthenticated) {
       console.log('group-welcome- before')
