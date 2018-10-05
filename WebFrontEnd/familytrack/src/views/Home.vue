@@ -30,6 +30,7 @@
 </template>
 
 <script>
+
 import group from '@/resources/group.js'
 import GoogleMap from '@/components/GoogleMap.vue'
 
