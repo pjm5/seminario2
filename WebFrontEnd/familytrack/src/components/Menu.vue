@@ -1,6 +1,6 @@
 <template>
 <div>
-    <v-navigation-drawer v-if="loggedIn" v-model="drawer" fixed clipped class="grey lighten-4" app>
+    <v-navigation-drawer v-if="bshowMenu" v-model="drawer" fixed clipped class="grey lighten-4" app>
         <v-list  dense class="grey lighten-4">
             <template v-for="(item, i) in items">
                 <v-layout v-if="item.heading" :key="i" row align-center>
@@ -29,15 +29,15 @@
         <v-toolbar-side-icon v-if="loggedIn" @click.native="drawer = !drawer"></v-toolbar-side-icon>
         <span class="title ml-3 mr-5">Family Tracking</span>
         <v-spacer></v-spacer>
-        <div v-if="loggedIn">
+        <div v-if="bshowMenu">
             <span class="title ml-3 mr-5">Hola  {{user}}</span>
         </div>
-        <v-btn v-if="loggedIn" icon large to="/welcome">
+        <v-btn v-if="bshowMenu" icon large to="/welcome">
             <v-avatar size="32px" tile>
                 <v-icon v-on:click="logout()">exit_to_app</v-icon>
             </v-avatar>
         </v-btn>
-        <v-btn v-if="!loggedIn" icon large to="/">
+        <v-btn v-if="!bshowMenu" icon large to="/">
             <v-avatar size="32px" tile>
                 <v-icon>home</v-icon>
             </v-avatar>
@@ -54,6 +54,7 @@ export default {
   data: () => ({
     drawer: null,
     user: 'null',
+    bshowMenu: false,
     items: [{
       heading: 'MENU'
     },
@@ -72,18 +73,7 @@ export default {
     ]
   }),
   mounted: {
-     loggedIn () {
-         console.log("leyendo local storage loggin")
-         console.log(this.$store.state.IsAuthenticated)
-       if (this.$store.state.IsAuthenticated) {
-           console.log("entro a loggin")
-        user.getById(this.$store.state.token, this.$store.state.user.id).then(response => {
-          console.log(response)
-          this.user = response.username
-        })
-      }
-      return this.$store.state.IsAuthenticated
-    }
+     bshowMenu: loggedIn ()
   },
   methods: {
     logout: function (event) {
@@ -98,6 +88,18 @@ export default {
         console.log('es un error')
         console.log(error)
       })
+    },
+    loggedIn : function() {
+         console.log("leyendo local storage loggin")
+         console.log(this.$store.state.IsAuthenticated)
+       if (this.$store.state.IsAuthenticated) {
+           console.log("entro a loggin")
+        user.getById(this.$store.state.token, this.$store.state.user.id).then(response => {
+          console.log(response)
+          this.user = response.username
+        })
+      }
+      return this.$store.state.IsAuthenticated
     }
   }
 }

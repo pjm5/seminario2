@@ -1,5 +1,5 @@
 <template>
-<v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" height="1000">
+<v-parallax src="../assets/inicio.jpg" height="1000">
     <div>
         <v-container fluid>
             <v-layout row wrap>
