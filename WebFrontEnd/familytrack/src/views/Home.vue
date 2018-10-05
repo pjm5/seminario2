@@ -76,12 +76,12 @@ export default {
     console.log(a)
   },
   created () {
-     group.getAll().then(response => {
-       this.groups = response
-     }).catch((error) => {
-       console.log('es un error')
-       console.log(error)
-     })
+    group.getAll().then(response => {
+      this.groups = response
+    }).catch((error) => {
+      console.log('es un error')
+      console.log(error)
+    })
   },
   components: {
     GoogleMap
