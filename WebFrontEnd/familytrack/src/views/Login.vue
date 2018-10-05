@@ -40,7 +40,6 @@ export default {
     Dialog
   },
   mounted () {
-    // vueApp.SetAutorized(false);
   },
   methods: {
     login: function (event) {

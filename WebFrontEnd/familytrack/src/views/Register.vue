@@ -35,8 +35,6 @@ export default {
     selectItem: {}
   }),
   mounted () {
-
-    // SetAutorized(false);
   },
   methods: {
     register: function (event) {
