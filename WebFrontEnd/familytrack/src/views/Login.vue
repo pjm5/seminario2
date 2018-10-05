@@ -30,7 +30,7 @@
 
 <script>
 import user from '@/resources/user.js'
-import Dialog from '@/components/Dialog.vue'
+//import Dialog from '@/components/Dialog.vue'
 
 export default {
   data: () => ({
