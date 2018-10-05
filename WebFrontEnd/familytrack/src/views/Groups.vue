@@ -143,6 +143,7 @@ export default {
       }, 300)
     },
     save () {
+      console.log(this.$store.state.token)
       if (this.editedIndex > -1) {
         Object.assign(this.groups[this.editedIndex], this.selectItem)
       } else {
