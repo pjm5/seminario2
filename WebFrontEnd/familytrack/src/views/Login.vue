@@ -37,7 +37,7 @@ export default {
     selectItem: {}
   }),
   components: {
-    Dialog
+    //Dialog
   },
   mounted () {
   },

@@ -16,8 +16,8 @@ export default {
       return response.data
     })
   },
-  create (item) {
-    return http.post(path, item, config).then((response) => {
+  create (token, item) {
+    return http.post(path + '?access_token=' + token, item, config).then((response) => {
       return response.data
     })
   },
