@@ -43,18 +43,18 @@ export default {
       modal: null,
       selectItem: {},
       center: {
-        lat: 10.0,
-        lng: 10.0
+        lat: -31.4,
+        lng: -64.1833
       },
       markers: [{
         position: {
-          lat: 10.0,
-          lng: 10.0
+          lat: -31.45949097,
+          lng: -64.1810500
         }
       }, {
         position: {
-          lat: 11.0,
-          lng: 11.0
+          lat: -31.45989488,
+          lng: -64.1810500
         }
       }]
     }

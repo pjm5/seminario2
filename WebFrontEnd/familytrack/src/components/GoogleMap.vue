@@ -12,8 +12,8 @@ export default {
       // default to Montreal to keep it simple
       // change this to whatever makes sense
       center: {
-        lat: 45.508,
-        lng: -73.587
+         lat: -31.4,
+         lng: -64.1833
       },
       markers: [],
       places: [],
@@ -53,8 +53,8 @@ export default {
     geolocate: function () {
       navigator.geolocation.getCurrentPosition(position => {
         this.center = {
-          lat: 45.508,
-          lng: -73.587
+          lat: -31.4,
+          lng: -64.1833
         }
       })
     }
