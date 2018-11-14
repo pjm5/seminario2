@@ -13,7 +13,6 @@ export default {
     })
   },
   create (item) {
-    console.log('create')
     return http.post(path, item).then((response) => {
       return response.data
     })
