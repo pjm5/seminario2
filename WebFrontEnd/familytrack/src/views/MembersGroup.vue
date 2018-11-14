@@ -20,18 +20,18 @@
                                 <v-container grid-list-md>
                                     <v-layout wrap>
                                         <v-flex xs12>
-                                            <v-text-field v-model="selectItem.Name" label="name"></v-text-field>
+                                            <v-text-field v-model="selectItem.Name" label="Name"></v-text-field>
                                         </v-flex>
                                         <v-flex xs12>
-                                            <v-text-field v-model="selectItem.LastName" label="lastname"></v-text-field>
+                                            <v-text-field v-model="selectItem.LastName" label="Last Name"></v-text-field>
                                         </v-flex>
 
                                         <v-flex xs12>
-                                            <v-text-field v-model="selectItem.Email" label="email"></v-text-field>
+                                            <v-text-field v-model="selectItem.Email" label="Email"></v-text-field>
                                         </v-flex>
                                         <v-flex xs6>
                                             <v-dialog ref="dialog" :return-value.sync="selectItem.BirdDay" persistent lazy full-width width="290px">
-                                                <v-text-field slot="activator" v-model="selectItem.BirdDay" label="Picker in dialog" prepend-icon="event" readonly></v-text-field>
+                                                <v-text-field slot="activator" v-model="selectItem.BirdDay" label="Select Date" prepend-icon="event" readonly></v-text-field>
                                                 <v-date-picker v-model="selectItem.BirdDay" scrollable>
                                                     <v-spacer></v-spacer>
                                                     <v-btn flat color="primary" @click="modal = false">Cancel</v-btn>
@@ -40,7 +40,7 @@
                                             </v-dialog>
                                         </v-flex>
                                         <v-flex xs6>
-                                            <v-select :items="groups" v-model="selectItem.GroupId" item-text="Name" item-value="id" label="Select">
+                                            <v-select :items="groups" v-model="selectItem.GroupId" item-text="Name" item-value="id" label="Select Group">
                                             </v-select>
                                         </v-flex>
                                     </v-layout>

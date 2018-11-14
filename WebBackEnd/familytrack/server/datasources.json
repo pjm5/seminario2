@@ -4,9 +4,9 @@
     "port": 3306,
     "url": "",
     "database": "fcv3c152e7t89uct",
+    "password": "uw9rgt5einowlxbm",
     "name": "herokudb",
     "user": "u7bzmbqapntpkl1r",
-    "password": "uw9rgt5einowlxbm",
     "connector": "mysql"
   }
 }

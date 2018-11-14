@@ -33,6 +33,14 @@
       "type": "hasMany",
       "model": "position_member",
       "foreignKey": "GroupMemberId"
+    },
+    "positions": {
+      "type": "hasMany",
+      "model": "Position_member",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
     }
   },
   "acls": [

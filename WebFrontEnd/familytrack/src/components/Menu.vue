@@ -12,7 +12,7 @@
 
                 </v-layout>
                 <v-divider v-else-if="item.divider" :key="i" dark class="my-3"></v-divider>
-                <v-list-tile v-else :key="i" v-bind:href="'#/' + (item.text == 'home' ? '': item.text)">
+                <v-list-tile v-else :key="i" v-bind:href="'#/' + (item.value == 'home' ? '': item.value)">
                     <v-list-tile-action>
                         <v-icon>{{ item.icon }}</v-icon>
                     </v-list-tile-action>
@@ -30,7 +30,7 @@
         <span class="title ml-3 mr-5">Family Tracking</span>
         <v-spacer></v-spacer>
         <div v-if="loggedIn">
-            <span class="title ml-3 mr-5">Hola  {{user}}</span>
+            <span class="title ml-3 mr-5">Hi  {{user}}!</span>
         </div>
         <v-btn v-if="loggedIn" icon large to="/welcome">
             <v-avatar size="32px" tile>
@@ -59,15 +59,18 @@ export default {
     },
     {
       icon: 'group',
-      text: 'groups'
+      text: 'Groups',
+      value: 'groups'
     },
     {
       icon: 'supervised_user_circle',
-      text: 'membersGroup'
+      text: 'Members Group',
+      value: 'membersGroup'
     },
     {
       icon: 'map',
-      text: 'home'
+      text: 'Home',
+      value: 'home'
     }
     ]
   }),

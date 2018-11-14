@@ -8,7 +8,7 @@
             </v-flex>
             <v-flex xs4>
                 <v-dialog ref="dialog" v-model="modal" :return-value.sync="date" persistent lazy full-width width="290px">
-                    <v-text-field slot="activator" v-model="date" label="Picker in dialog" prepend-icon="event" readonly></v-text-field>
+                    <v-text-field slot="activator" v-model="date" label="Select Date" prepend-icon="event" readonly></v-text-field>
                     <v-date-picker v-model="date" scrollable>
                         <v-spacer></v-spacer>
                         <v-btn flat color="primary" @click="modal = false">Cancel</v-btn>
@@ -17,7 +17,7 @@
                 </v-dialog>
             </v-flex>
             <v-flex xs4>
-                <v-btn round color="primary" dark>Buscar</v-btn>
+                <v-btn round color="primary" dark>Search</v-btn>
             </v-flex>
         </v-layout>
     </v-flex>

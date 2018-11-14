@@ -23,6 +23,14 @@
       "type": "hasMany",
       "model": "group_member",
       "foreignKey": "GroupId"
+    },
+    "members": {
+      "type": "hasMany",
+      "model": "Group_member",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
     }
   },
   "acls": [
