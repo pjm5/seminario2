@@ -29,9 +29,9 @@
         <v-toolbar-side-icon v-if="loggedIn" @click.native="drawer = !drawer"></v-toolbar-side-icon>
         <span class="title ml-3 mr-5">Family Tracking</span>
         <v-spacer></v-spacer>
-        <div v-if="loggedIn">
+        <!--<div v-if="loggedIn">
             <span class="title ml-3 mr-5">Hi  {{user}}!</span>
-        </div>
+        </div>-->
         <v-btn v-if="loggedIn" icon large to="/welcome">
             <v-avatar size="32px" tile>
                 <v-icon v-on:click="logout()">exit_to_app</v-icon>
@@ -53,7 +53,7 @@ export default {
   name: 'Menu',
   data: () => ({
     drawer: null,
-    user: 'null',
+    user: '',
     items: [{
       heading: 'MENU'
     },
@@ -95,12 +95,10 @@ export default {
     }
   },
   mounted:function(){      
-      if (this.$store.state.IsAuthenticated) {
-        user.getById(this.$store.state.token, this.$store.state.user.id).then(response => {
-          console.log(response)
-          this.user = response.username
-        })
-      }
+    user.getById(this.$store.state.token, this.$store.state.user.id).then(response => {
+        console.log(response)
+        this.user = response.username
+    })
   }
 }
 </script>
