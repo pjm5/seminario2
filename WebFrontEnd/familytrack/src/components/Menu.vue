@@ -91,12 +91,6 @@ export default {
   },
   computed: {
     loggedIn () {
-      if (this.$store.state.IsAuthenticated) {
-        user.getById(this.$store.state.token, this.$store.state.user.id).then(response => {
-          console.log(response)
-          this.user = response.username
-        })
-      }
       return this.$store.state.IsAuthenticated
     }
   },
