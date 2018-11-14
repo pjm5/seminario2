@@ -74,17 +74,6 @@ export default {
     }
     ]
   }),
-  computed: {
-    loggedIn () {
-      if (this.$store.state.IsAuthenticated) {
-        user.getById(this.$store.state.token, this.$store.state.user.id).then(response => {
-          console.log(response)
-          this.user = response.username
-        })
-      }
-      return this.$store.state.IsAuthenticated
-    }
-  },
   methods: {
     logout: function (event) {
       user.logout(this.$store.state.token).then(response => {
@@ -99,6 +88,17 @@ export default {
         console.log(error)
       })
     }
-  }
+  },
+  computed: {
+    loggedIn () {
+      if (this.$store.state.IsAuthenticated) {
+        user.getById(this.$store.state.token, this.$store.state.user.id).then(response => {
+          console.log(response)
+          this.user = response.username
+        })
+      }
+      return this.$store.state.IsAuthenticated
+    }
+  },
 }
 </script>

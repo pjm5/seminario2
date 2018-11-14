@@ -37,8 +37,8 @@ export default {
       return response.data
     })
   },
-  getById (item, id) {
-    return http.get(path + '/' + id + '?access_token=' + item).then((response) => {
+  async getById (item, id) {
+    return await http.get(path + '/' + id + '?access_token=' + item).then((response) => {
       return response.data
     })
   }
