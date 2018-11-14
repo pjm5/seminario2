@@ -34,7 +34,6 @@ export default {
   getOneById (id) {
     return http.get(path + '/' + id, config).then((response) => {
       return response.data
-      console.log("test")
     })
   }
 }
