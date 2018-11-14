@@ -100,5 +100,13 @@ export default {
       return this.$store.state.IsAuthenticated
     }
   },
+  mounted:function(){      
+      if (this.$store.state.IsAuthenticated) {
+        user.getById(this.$store.state.token, this.$store.state.user.id).then(response => {
+          console.log(response)
+          this.user = response.username
+        })
+      }
+  }
 }
 </script>
