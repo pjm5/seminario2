@@ -10,6 +10,7 @@
       "type": "number",
       "dataType": "decimal",
       "precision": 10,
+      "scale": 6,
       "required": true,
       "default": -31.3
     },
@@ -17,6 +18,7 @@
       "type": "number",
       "dataType": "decimal",
       "precision": 10,
+      "scale": 6,
       "required": true,
       "default": 64.32
     },
