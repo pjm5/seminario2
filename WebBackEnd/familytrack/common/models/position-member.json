@@ -9,12 +9,14 @@
     "Lat": {
       "type": "number",
       "dataType": "decimal",
+      "precision": 10,
       "required": true,
       "default": -31.3
     },
     "Long": {
       "type": "number",
       "dataType": "decimal",
+      "precision": 10,
       "required": true,
       "default": 64.32
     },
