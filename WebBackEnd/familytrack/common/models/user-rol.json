@@ -1,0 +1,22 @@
+{
+  "name": "userRol",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "IdUser": {
+      "type": "number",
+      "required": true
+    },
+    "RoleType": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

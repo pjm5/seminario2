@@ -24,20 +24,20 @@
     "GroupId": {
       "type": "number",
       "required": true,
-      "default": 1
+      "default": null
+    },
+    "UserId": {
+      "type": "number",
+      "required": true,
+      "default": null
     }
   },
   "validations": [],
   "relations": {
-    "position_members": {
-      "type": "hasMany",
-      "model": "position_member",
-      "foreignKey": "GroupMemberId"
-    },
-    "positions": {
-      "type": "hasMany",
-      "model": "Position_member",
-      "foreignKey": "",
+    "group": {
+      "type": "belongsTo",
+      "model": "Group",
+      "foreignKey": "GroupId",
       "options": {
         "nestRemoting": true
       }

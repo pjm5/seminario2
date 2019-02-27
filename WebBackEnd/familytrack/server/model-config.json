@@ -49,5 +49,9 @@
   "Position_member": {
     "dataSource": "herokudb",
     "public": true
+  },
+  "userRol": {
+    "dataSource": "herokudb",
+    "public": true
   }
 }

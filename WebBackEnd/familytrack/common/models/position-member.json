@@ -8,18 +8,18 @@
   "properties": {
     "Lat": {
       "type": "number",
+      "required": true,
       "dataType": "decimal",
       "precision": 10,
       "scale": 6,
-      "required": true,
       "default": -31.3
     },
     "Long": {
       "type": "number",
+      "required": true,
       "dataType": "decimal",
       "precision": 10,
       "scale": 6,
-      "required": true,
       "default": 64.32
     },
     "Date_track": {

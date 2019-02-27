@@ -11,6 +11,10 @@
       "required": true,
       "default": "family 1"
     },
+    "UserId": {
+      "type": "number",
+      "required": true
+    },
     "Description": {
       "type": "string",
       "required": true,
@@ -19,15 +23,10 @@
   },
   "validations": [],
   "relations": {
-    "group_members": {
-      "type": "hasMany",
-      "model": "group_member",
-      "foreignKey": "GroupId"
-    },
-    "members": {
+    "groupMembers": {
       "type": "hasMany",
       "model": "Group_member",
-      "foreignKey": "",
+      "foreignKey": "GroupId",
       "options": {
         "nestRemoting": true
       }
