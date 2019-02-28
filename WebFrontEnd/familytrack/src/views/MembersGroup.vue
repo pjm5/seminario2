@@ -140,7 +140,7 @@
 <script>
 import groupMember from '@/resources/group_member.js'
 import group from '@/resources/group.js'
-import user_role from '@/resources/user_role.js'
+import userRole from '@/resources/user_role.js'
 import user from '@/resources/user.js'
 
 export default {
@@ -293,7 +293,7 @@ export default {
           oUserRole.IdUser = response.id
           oUserRole.RoleType = 2 // el 2 es mobile
 
-          user_role.create(oUserRole).then(() => {
+          userRole.create(oUserRole).then(() => {
             console.log('rol creado')
           })
           this.$Progress.finish()

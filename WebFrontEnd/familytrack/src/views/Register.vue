@@ -29,7 +29,7 @@
 
 <script>
 import user from '@/resources/user.js';
-import user_role from '@/resources/user_role.js'
+import userRole from '@/resources/user_role.js'
 
 export default {
   data: () => ({
@@ -47,7 +47,7 @@ export default {
          oUserRole.IdUser = response.id   
          oUserRole.RoleType = 1   
 
-         user_role.create(oUserRole).then(() => {
+         userRole.create(oUserRole).then(() => {
 
                 console.log('rol creado')
          });

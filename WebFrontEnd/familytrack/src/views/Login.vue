@@ -42,59 +42,53 @@
 </template>
 
 <script>
-
-import user from '@/resources/user.js';
-import user_role from '@/resources/user_role.js'
+import User from '@/resources/user.js'
+import userRole from '@/resources/user_role.js'
 
 export default {
   data: () => ({
     selectItem: {}
   }),
   components: {
-    //Dialog
+    // Dialog
   },
-  mounted () {
-  },
+  mounted () {},
   methods: {
     login: function (event) {
-      user.login(this.selectItem).then(response => {
-        
+      User.login(this.selectItem)
+        .then(response => {
+          var filter = {}
+          filter.userId = response.userId
 
-        var filter = {}
-        filter.userId = response.userId
+          userRole.getByUserId(filter).then(responseUserRole => {
+            var uservalid = false
 
-        user_role.getByUserId(filter).then((responseUserRole)=>{
-
-             var uservalid = false;
-              
-              for(var i=0;i<responseUserRole.length;i++) {
-
-                  if(responseUserRole[i].IdUser == response.userId && responseUserRole[i].RoleType == 1){
-
-                      uservalid = true;
-                      console.log(response)
-                              localStorage.setItem('accToken', response.id)
-                              this.$store.state.token = response.id
-                              this.$store.state.IsAuthenticated = true
-                              this.$store.state.user.id = response.userId
-                              this.$router.push({
-                                path: '/home'
-                              })
-                  }
-
+            for (var i = 0; i < responseUserRole.length; i++) {
+              if (
+                responseUserRole[i].IdUser === response.userId &&
+                responseUserRole[i].RoleType === 1
+              ) {
+                uservalid = true
+                console.log(response)
+                localStorage.setItem('accToken', response.id)
+                this.$store.state.token = response.id
+                this.$store.state.IsAuthenticated = true
+                this.$store.state.user.id = response.userId
+                this.$router.push({
+                  path: '/home'
+                })
               }
-
-              if (uservalid === false){
-                alert("usuario no valido")
-              }
-              
+            }
+            if (uservalid === false) {
+              alert('usuario no valido')
+            }
+          })
         })
-
-      }).catch((error) => {
-        console.log('es un error')
-        console.log(error)
-         alert("usuario no valido")
-      })
+        .catch(error => {
+          console.log('es un error')
+          console.log(error)
+          alert('usuario no valido')
+        })
     },
     cancel: function (event) {
       this.$router.push({
