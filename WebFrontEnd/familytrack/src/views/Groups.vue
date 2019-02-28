@@ -103,7 +103,6 @@ export default {
   methods: {
     initialize () {
 
-
       var filter = {}
       filter.UserId = this.$store.state.user.id
 
@@ -155,16 +154,13 @@ export default {
       if (this.editedIndex > -1) {
         Object.assign(this.groups[this.editedIndex], this.selectItem)
       } else {
-
         this.selectItem.UserId = this.$store.state.user.id
-
         group
           .create(this.$store.state.token, this.selectItem)
           .then(() => {
             this.groups.push(this.selectItem)
           })
           .catch(error => {
-            console.log('es un error')
             console.log(error)
           })
       }
