@@ -3,7 +3,7 @@
     <v-flex xs12>
         <v-layout row wrap>
             <v-flex xs4>
-                <v-combobox :items="groups" item-text="Name" item-value="id" change="changeRoute" label="Select your group">
+                <v-combobox :items="groups" item-text="Name" item-value="id" @change="onChange($event)" label="Select your group">
                 </v-combobox>
             </v-flex>
             <v-flex xs4>
@@ -88,6 +88,12 @@ export default {
       })
     }
   },
+  methods:{
+    onChange(event) {
+      // aca va consulta del los punto por usuario
+            console.log(event)
+        }
+  },  
   computed: {
     loggedIn () {
       return this.$store.IsAuthenticated
@@ -99,13 +105,13 @@ export default {
   created () {
 
 
-    var filter = {}
+    var filter = {"where": {"UserId":this.$store.state.user.id}} 
     filter.UserId = this.$store.state.user.id
 
     console.log(filter)
     debugger;
 
-    group.getAll(this.$store.state.token,filter).then(response => {
+    group.getAllFilter(this.$store.state.token,filter).then(response => {
       this.groups = response
     }).catch((error) => {
       console.log('es un error')

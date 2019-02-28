@@ -103,16 +103,19 @@ export default {
   methods: {
     initialize () {
 
-      var filter = {}
-      filter.UserId = this.$store.state.user.id
+      let i = this.$store.state.user.id
+      console.log("id usuario-> "+i)
+      var filter = {"where": {"UserId":this.$store.state.user.id}} /* {"where": {"UserId":"6"}}
+     */  filter.UserId = this.$store.state.user.id
 
       console.log(filter)
       debugger;
 
       group
-        .getAll(this.$store.state.token,filter)
+        .getAllFilter(this.$store.state.token,filter)
         .then(response => {
           this.groups = response
+          console.log(response)
         })
         .catch(error => {
           console.log('es un error')

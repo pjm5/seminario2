@@ -200,8 +200,9 @@ export default {
   },
   methods: {
     initialize () {
+      var filter = {"where": {"UserId":this.$store.state.user.id}}
       groupMember
-        .getAll()
+        .getAllFilter(this.$store.state.token,filter)
         .then(response => {
           this.membersGroup = response
         })
