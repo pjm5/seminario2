@@ -136,7 +136,7 @@
 
 import groupMember from "@/resources/group_member.js";
 import group from "@/resources/group.js";
-import user_role from '@/resources/user_role.js'
+import user_role from '@/resources/user_role.js';
 import user from '@/resources/user.js'
 
 export default {

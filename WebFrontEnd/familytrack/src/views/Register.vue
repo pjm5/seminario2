@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import user from '@/resources/user.js'
+import user from '@/resources/user.js';
 import user_role from '@/resources/user_role.js'
 
 export default {

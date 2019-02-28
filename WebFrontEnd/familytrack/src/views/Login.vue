@@ -71,7 +71,7 @@ export default {
 
                   if(responseUserRole[i].IdUser == response.userId && responseUserRole[i].RoleType == 1){
 
-                     var uservalid = true;
+                      uservalid = true;
                       console.log(response)
                               localStorage.setItem('accToken', response.id)
                               this.$store.state.token = response.id
@@ -84,7 +84,7 @@ export default {
 
               }
 
-              if (uservalid == false){
+              if (uservalid === false){
                 alert("usuario no valido")
               }
               
