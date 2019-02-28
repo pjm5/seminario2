@@ -50,7 +50,7 @@
     "dataSource": "herokudb",
     "public": true
   },
-  "userRol": {
+  "userRole": {
     "dataSource": "herokudb",
     "public": true
   }

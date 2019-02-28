@@ -2,7 +2,7 @@
 var server = require('./server');
 var ds = server.dataSources.herokudb;
 var lbTables = ['User', 'AccessToken', 'ACL', 'RoleMapping', 'Role', 'Group',
-  'Group_member', 'Position_member', 'userRol'];
+  'Group_member', 'Position_member', 'userRole'];
 
 ds.autoupdate(lbTables, function(er) {
   if (er) throw er;
