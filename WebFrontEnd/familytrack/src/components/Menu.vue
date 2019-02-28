@@ -12,7 +12,7 @@
 
                 </v-layout>
                 <v-divider v-else-if="item.divider" :key="i" dark class="my-3"></v-divider>
-                <v-list-tile v-else :key="i" v-bind:href="'#/' + (item.value == 'home' ? '': item.value)">
+                <v-list-tile v-else :key="i" v-bind:href="'#/' + item.value ">
                     <v-list-tile-action>
                         <v-icon>{{ item.icon }}</v-icon>
                     </v-list-tile-action>
@@ -80,8 +80,8 @@ export default {
         console.log(response)
         this.$store.state.IsAuthenticated = false
         localStorage.removeItem('accToken')
-        this.$router.replace({
-          name: 'welcome'
+        this.$router.push({
+          path: '/welcome'
         })
       }).catch((error) => {
         console.log('es un error')

@@ -11,8 +11,15 @@ export default {
   /*
  cambiar por await o promises
  */
+  getAllFilter (token, filter) {
+    var stringfilter = JSON.stringify(filter)
+
+    return http.get(path + '?filter=' + stringfilter + '&access_token=' + token).then((response) => {
+      return response.data
+    })
+  },
   getAll () {
-    return http.get(path, config).then((response) => {
+    return http.get(path).then((response) => {
       return response.data
     })
   },

@@ -1,5 +1,5 @@
 {
-  "name": "userRol",
+  "name": "UserRole",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {

@@ -11,7 +11,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "nock": "^10.0.0",
-    "vue": "^2.5.17",
+    "vue": "^2.6.7",
     "vue-localstorage": "^0.6.2",
     "vue-moment": "^4.0.0",
     "vue-progressbar": "^0.7.5",
@@ -30,6 +30,7 @@
     "@vue/test-utils": "^1.0.0-beta.20",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
+    "eslint": "^5.14.1",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
     "vue-cli-plugin-vuetify": "^0.1.6",

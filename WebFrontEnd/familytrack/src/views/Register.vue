@@ -29,6 +29,7 @@
 
 <script>
 import user from '@/resources/user.js'
+import user_role from '@/resources/user_role.js'
 
 export default {
   data: () => ({
@@ -39,8 +40,18 @@ export default {
   methods: {
     register: function (event) {
       console.log('registrar-> ' + this.selectItem.password)
-      user.create(this.selectItem).then(() => {
+      user.create(this.selectItem).then((response) => {
         console.log('usuario registrado')
+
+         var oUserRole = {}
+         oUserRole.IdUser = response.id   
+         oUserRole.RoleType = 1   
+
+         user_role.create(oUserRole).then(() => {
+
+                console.log('rol creado')
+         });
+
 
         this.$router.push({
           path: 'login'

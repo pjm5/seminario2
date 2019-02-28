@@ -97,7 +97,15 @@ export default {
     console.log(a)
   },
   created () {
-    group.getAll().then(response => {
+
+
+    var filter = {}
+    filter.UserId = this.$store.state.user.id
+
+    console.log(filter)
+    debugger;
+
+    group.getAll(this.$store.state.token,filter).then(response => {
       this.groups = response
     }).catch((error) => {
       console.log('es un error')
