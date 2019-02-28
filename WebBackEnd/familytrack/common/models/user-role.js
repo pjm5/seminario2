@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports = function(Userrol) {
+module.exports = function(UserRole) {
 
 };
