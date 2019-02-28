@@ -13,7 +13,6 @@ export default {
     })
   },
   create (item) {
-    debugger
     return http.post(path, item).then((response) => {
       return response.data
     })
