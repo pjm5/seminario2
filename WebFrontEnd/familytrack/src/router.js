@@ -6,6 +6,7 @@ import Register from './views/Register.vue'
 import Welcome from './views/Welcome.vue'
 import Groups from './views/Groups.vue'
 import MembersGroup from './views/MembersGroup.vue'
+import Profile from './views/Profile.vue'
 
 import Private from './layout/private.vue'
 import Public from './layout/public.vue'
@@ -51,6 +52,10 @@ const router = new Router({
         {
           path: '/membersGroup',
           component: MembersGroup
+        },
+        {
+          path: '/profile',
+          component: Profile
         }
       ]
     }

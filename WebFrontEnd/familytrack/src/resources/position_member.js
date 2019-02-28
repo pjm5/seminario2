@@ -1,14 +1,14 @@
 import http from 'axios'
 import ENDPONT from '../endpoints.js'
 
-var path = ENDPONT.getUrl() + 'position_member'
+var path = ENDPONT.getUrl() + 'Position_members'
 
 export default {
   /*
  cambiar por await o promises
  */
-  getAll () {
-    return http.get(path).then((response) => {
+  getAll (token) {
+    return http.get(path + '?access_token=' + token).then((response) => {
       return response.data
     })
   },

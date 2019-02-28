@@ -71,6 +71,11 @@ export default {
       icon: 'map',
       text: 'Home',
       value: 'home'
+    },
+    {
+      icon: 'account_box',
+      text: 'Profile',
+      value: 'profile'
     }
     ]
   }),
